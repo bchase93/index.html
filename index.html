@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="resume.css"/> 
+<title>Brandon Chase Resume</title>
+</head>
+<body>
+<div class="container">
+
+<hr class="lines" id="topLine">
+
+  <div class="row">
+  <h1 class="col-xs-4">Brandon<br>Chase</h1>
+    <div id = "contactInfo" class="col-xs-8">
+      <h3><b>Test Name</b></h3>
+        Provo, UT 84604<br>
+        949-521-8534<br>
+        <div id="email">brandonchase93@gmail.com</div>
+    </div>
+  </div>
+<hr class="lines">
+
+<div class="row">
+  <h2 class="clickable col-xs-4" onClick="toggleEducation()">Education</h2>
+  <div id="education" class="col-xs-8"></div>
+</div>
+
+<hr class="lines">
+
+<div class="row">
+  <h2 class="clickable col-xs-4" onClick="toggleSkills()">Skills</h2>
+  <div id="skills" class="col-xs-8">
+    <ul>
+       <li>C++</li>
+       <li>Python</li>
+       <li>HTML</li>
+      <li>CSS</li>
+      <li>Javascript</li>
+      <li>Critical Thinking/Problem Solving</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="lines">
+
+<div class="row">
+  <h2 class="clickable col-xs-4" onClick="toggleWorkExperience()">Work Experience</h2>
+  <div id="workExperience" class="col-xs-8">
+    <h3>Front Server / La Jolla Groves</h3>
+      <div class="date">May 2016 - PRESENT,  Provo, UT</div><br>
+        <p>
+          Front Server at a high-end restaurant<br>
+        Familiarized guests with menu items and daily specials, organized<br>event set up for groups of up  to 150 people, accurately recorded food<br>and drink orders, and tallied bills.
+        </p>
+
+    <h3>Volunteer Missionary / Church of Jesus Christ of Latter-Day Saints</h3>
+      <p class="date">July 2012-July 2014,  Cali, Colombia</p><br>
+        <p>
+          Appointed leader of various groups of 10-25 volunteer             missionaries.  
+          Conducted weekly training meetings, set and<br>followed up on goals, and created progress reports
+        </p>
+  </div>
+</div>
+
+<hr class="lines">
+
+<div class="row">
+  <h2 class="clickable col-xs-4" onClick="toggleAdditionalInformation()">Additional Information</h2>
+  <div id="additionalInformation" class="col-xs-8">
+    <ul>
+      <li>Eagle Scout</li>
+      <li>Spanish speaker</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+let resume = {  
+  "contactInfo": {
+      // "section": "contactInfo", 
+      "fullName": "Brandon Chase",
+      "address": "Provo, UT 84604",
+      "email": "brandonchase93@gmail.com"
+  },
+
+  "sections": [  
+      {
+          "sectionTitle": "Education",
+          "school": "Full-Timed Student Bachelor of Science, Computer Science",
+          "graduationDate": "Expected to graduate  in 2020"
+      },
+
+      {
+          "sectionTitle": "Skills",
+          "languages": [
+              "C++",
+              "Python",
+              "HTM",
+              "CSS",
+              "Javascript",
+              "Critical Thinking/Problem Solving"
+          ]
+      },
+
+      {
+          "sectionTitle": "Work Experience",
+          "jobs": [
+              {
+                  "jobTitle": "Front Server / La Jolla Groves",
+                  "resposibilities": [
+                      "Familiarized guests with menu items and daily specials.", 
+                      "Organized event set up for groups of up to 150 people.",
+                      "Accurately recorded food and drink orders, and tallied bills."
+                  ]
+              },
+
+              {
+                  "jobTitle": "Volunteer Missionary / Church of Jesus Christ of Latter-Day Saints",
+                  "resposibilities": [
+                      "Appointed leader of various groups of 10-25 volunteer missionaries.",
+                      "Conducted weekly training meetings.",
+                      "set and<br>followed up on goals.",
+                      "created progress reports."
+                  ]
+              }
+          ]
+      },
+
+      {
+          "sectionTitle": "Additional Information",
+          "funFacts": [
+              "Eagle Scout",
+              "Spanish Speaker"
+          ]
+      }
+  ]
+};
+
+var showEducation = true;
+function toggleEducation() {
+  showEducation = !showEducation;
+  if (showEducation) {
+    document.getElementById('education').style.display = 'block';
+  } else {
+    document.getElementById('education').style.display = 'none';
+  }
+}
+
+var showSkills = true;
+function toggleSkills() {
+  showSkills = !showSkills;
+  if (showSkills) {
+    document.getElementById('skills').style.display = 'block';
+  } else {
+    document.getElementById('skills').style.display = 'none';
+  }
+}
+
+var showWorkExperience = true;
+function toggleWorkExperience() {
+  showWorkExperience = !showWorkExperience;
+  if (showWorkExperience) {
+    document.getElementById('workExperience').style.display = 'block';
+  } else {
+    document.getElementById('workExperience').style.display = 'none';
+  }
+}
+
+var showAdditionalInformation = true;
+function toggleAdditionalInformation() {
+  showAdditionalInformation = !showAdditionalInformation;
+  if (showAdditionalInformation) {
+    document.getElementById('additionalInformation').style.display = 'block';
+  } else {
+    document.getElementById('additionalInformation').style.display = 'none';
+  }
+}
+
+function displayContactInfo() {
+  document.getElementById('contactInfo').innerHTML = '<b>' + resume.contactInfo.fullName + '<br>' + resume.contactInfo.address + '<br>' + resume.contactInfo.email + '</b>';
+  
+}
+
+function displayEducation() {
+  let edu = document.getElementById('education');
+  edu.innerHTML =
+      '<h3>' + resume.sections[0].school + '</h3>'
+    + '<p>' + resume.sections[0].graduationDate + '</p>';
+}
+
+function displayFromJson() {
+  displayContactInfo();
+  displayEducation();
+}
+
+
+window.addEventListener("DOMContentLoaded", displayFromJson);
+
+
+</script>
+  
+</body>
+</html>
